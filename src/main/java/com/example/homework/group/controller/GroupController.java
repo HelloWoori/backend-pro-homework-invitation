@@ -4,13 +4,12 @@ import com.example.homework.group.service.GroupService;
 import com.example.homework.member.model.MemberInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -20,37 +19,30 @@ public class GroupController {
     private final GroupService groupService;
 
     @GetMapping("groups/{groupUid}/invitations")
-    public String getInvitations(Model model, @PathVariable("groupUid") Long groupUid)
+    @ResponseBody
+    public List<String> getInvitations(@PathVariable("groupUid") Long groupUid)
     {
-        List<String> links = groupService.get(groupUid);
-        model.addAttribute("links", links);
-        return "group/get_invitations";
+        return groupService.get(groupUid);
     }
 
     @GetMapping("/groups/{groupUid}/invitation")
-    public String createInvitation(Model model, @PathVariable("groupUid") Long groupUid) {
-        model.addAttribute("groupUid", groupUid);
-        return "group/create_invitation";
+    @ResponseBody
+    public Long createInvitation(@PathVariable("groupUid") Long groupUid) {
+        return groupUid;
     }
 
     @PostMapping("/groups/{groupUid}/invitation")
-    public String createInvitationSubmit(
-            Model model,
-            HttpServletRequest request, HttpServletResponse response,
+    @ResponseBody
+    public boolean createInvitationSubmit(
             MemberInput parameter,
             @PathVariable("groupUid") Long groupUid) {
-        boolean result = groupService.invite(parameter, groupUid);
-        model.addAttribute("result", result);
-
-        return "group/create_invitation_result";
+        return groupService.invite(parameter, groupUid);
     }
 
     @GetMapping("/groups/{groupUid}/join")
-    public String joinGroup(Model model, HttpServletRequest request) {
+    @ResponseBody
+    public boolean joinGroup(HttpServletRequest request) {
         String invitationAuth = request.getParameter("id");
-        boolean result = groupService.join(invitationAuth);
-        model.addAttribute("result", result);
-
-        return "/group/join_result";
+        return groupService.join(invitationAuth);
     }
 }
