@@ -95,6 +95,7 @@ false
 ***
 
 ### 회원 조회 API
+GET `/members`
 ```json
 [
     {
