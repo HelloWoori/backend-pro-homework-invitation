@@ -136,6 +136,7 @@ GET `/members`
 ## ✍️ 참고 블로그
 - [마크다운 표 만들기](https://inasie.github.io/it%EC%9D%BC%EB%B0%98/%EB%A7%88%ED%81%AC%EB%8B%A4%EC%9A%B4-%ED%91%9C-%EB%A7%8C%EB%93%A4%EA%B8%B0/)
 - [스프링 부트에서 URL로 파라미터를 전달하는 2가지 방법](https://youngjinmo.github.io/2021/01/spring-request-parameter/)
+- [스프링 부트 Gradle jar 빌드 및 배포하기](https://dev-coco.tistory.com/68)
 - [REST API 설계 (네이밍)](https://server-engineer.tistory.com/886)
 - [JPA Table에 Index 설정하기](https://herojoon-dev.tistory.com/142)
 - [JPA Table에 Unique 설정하기](https://velog.io/@hwan2da/JPA-Columnuniquetrue-UniqueConstraints)
