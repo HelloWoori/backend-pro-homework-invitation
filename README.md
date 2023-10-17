@@ -80,7 +80,6 @@ GET `/groups/3/{invitationAuth}`
 GET `/members`  
 ![members](images/members.png)
 
-```
 
 ## ✍️ 기타
 - 기간이 만료된 링크가 저장된 행은 별도 배치 코드에서 일정 기간마다 돌면서 삭제한다고 가정
