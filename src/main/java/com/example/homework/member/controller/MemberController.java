@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -17,7 +16,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @GetMapping("/members")
-    public String getMembers(Model model, HttpServletRequest request)
+    public String getMembers(Model model)
     {
         List<Member> members = memberService.get();
         model.addAttribute("members", members);

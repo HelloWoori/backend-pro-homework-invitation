@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -36,7 +35,6 @@ public class GroupController {
     @PostMapping("/groups/{groupUid}/invitation")
     public String createInvitationSubmit(
             Model model,
-            HttpServletRequest request, HttpServletResponse response,
             MemberInput parameter,
             @PathVariable("groupUid") Long groupUid) {
         boolean result = groupService.invite(parameter, groupUid);
