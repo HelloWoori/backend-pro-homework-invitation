@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>초대장 링크 생성</title>
+</head>
+<body>
+<h1><span th:text="${groupUid}"></span>번 그룹의 초대장 링크 생성</h1>
+<form method="POST" th:action="@{'/groups/' + ${groupUid} + '/invitation'}">
+    <div><input type="email" name="email" placeholder="example@email.com" required/></div>
+    <div><input type="text" name="name" placeholder="이름" required/></div>
+    <div><input type="tel" name="phone" placeholder="핸드폰번호" required/></div>
+    <div><button>생성하기</button></div>
+</form>
+</body>
+</html>

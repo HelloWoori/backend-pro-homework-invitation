@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>초대장 링크 생성 결과</title>
+</head>
+<body>
+<div th:if="${result}">
+    <h1>성공!</h1>
+    <p>초대장 링크 생성에 성공했습니다 :)</p>
+</div>
+
+<div th:if="${result eq false}">
+    <h1>실패...</h1>
+    <p>초대장 링크 생성에 실패하였습니다 :(</p>
+</div>
+</body>
+</html>

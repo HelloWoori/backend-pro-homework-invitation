@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>발급된 초대장 목록</title>
+</head>
+<body>
+<h1><span th:text="${groupUid}"></span>번 그룹의 발급된 초대장 목록</h1>
+<ul>
+    <li th:each="link : ${links}"> <!-- 모델에 추가한 리스트를 순회 -->
+        <a th:href="@{${link}}"><span th:text="${link}"></span></a>
+    </li>
+</ul>
+</body>
+</html>
